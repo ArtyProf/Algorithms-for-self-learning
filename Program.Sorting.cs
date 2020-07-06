@@ -10,6 +10,8 @@ namespace Algorithms
         {
             //Insertion sort
             //This algorithm works effectively when sorting a small number of elements.
+            //Type: Insertion
+            //Case:  O(n) is the best and O(n2) is the worst
             int[] dataForInsertSort = new int[] { 7, 3, 5, 1, 6, 2, 9, 4, 8 };
             Console.WriteLine("Insertion Sort");
             Console.WriteLine("Source array: {0}", string.Join(", ", dataForInsertSort));
@@ -30,7 +32,8 @@ namespace Algorithms
             Console.WriteLine("Sorted array: {0} \n", string.Join(", ", dataForInsertSort));
 
             //Merge sort
-            //Divide & Conquer
+            //Type: Divide & Conquer
+            //Case: O(n log n)
             List<int> unsortedDataForMergeSort = new List<int>() { 7, 3, 5, 1, 6, 2, 9, 4, 8 };
             List<int> sortedDataForMergeSort;
             Console.WriteLine("Merge Sort");
@@ -49,7 +52,7 @@ namespace Algorithms
                 List<int> right = new List<int>();
 
                 int median = unsorted.Count / 2;
-                for (int i = 0; i < median; i++)  //Dividing the unsorted list
+                for (int i = 0; i < median; i++)
                 {
                     left.Add(unsorted[i]);
                 }
@@ -97,6 +100,28 @@ namespace Algorithms
                 return result;
             }
             Console.WriteLine("Sorted array: {0} \n", string.Join(", ", sortedDataForMergeSort));
+
+            //Bubble sort
+            //Type: Exchange
+            //Case: O(n2)
+            int[] dataForBubbleSort = new int[] { 7, 3, 5, 1, 6, 2, 9, 4, 8 };
+            Console.WriteLine("Bubble Sort");
+            Console.WriteLine("Source array: {0}", string.Join(", ", dataForBubbleSort));
+
+            int temp;
+            for (int i = 0; i < dataForBubbleSort.Length - 1; i++)
+            {
+                for (int j = 0; j < dataForBubbleSort.Length - 1; j++)
+                {
+                    if (dataForBubbleSort[j] > dataForBubbleSort[j + 1])
+                    {
+                        temp = dataForBubbleSort[j + 1];
+                        dataForBubbleSort[j + 1] = dataForBubbleSort[j];
+                        dataForBubbleSort[j] = temp;
+                    }
+                }
+            }
+            Console.WriteLine("Sorted array: {0} \n", string.Join(", ", dataForBubbleSort));
         }
     }
 }
